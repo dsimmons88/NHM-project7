@@ -1,3 +1,4 @@
+/*
 import React, {Component} from 'react';
 import ReactMapGL, {Marker, Popup, NavigationControl} from 'react-map-gl';
 import infoPop from './infoPop';
@@ -44,6 +45,7 @@ return (
   }
 }
 
+*/
 
 
 /*
@@ -76,3 +78,33 @@ this.state = {
   }
 }
 */
+import React, {Component} from 'react';
+import ReactMapGL from 'react-map-gl';
+const TOKEN = 'pk.eyJ1IjoiZHNpbW1vbnM4OCIsImEiOiJjamxvYmFlMnUxczE2M3BvMGJxcTBtMTY5In0.SG8UL0v6JyEsnEUPvPp2BA';
+
+class Map extends Component {
+
+  state = {
+    viewport: {
+      latitude: 35.780400,
+      longitude: -78.639100,
+      zoom: 11,
+      width: window.innerWidth,
+      height:window.innerHeight,
+      trackResize: true
+    }
+  };
+
+  render() {
+    return (
+      <ReactMapGL
+        {...this.state.viewport}
+        onViewportChange={(viewport) => this.setState({viewport})}
+        mapStyle="mapbox://styles/mapbox/streets-v9"
+        mapboxApiAccessToken={TOKEN}
+      />
+    );
+  }
+}
+
+export default Map;
