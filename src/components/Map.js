@@ -3,7 +3,7 @@ import MapGL, {NavigationControl} from 'react-map-gl';
 const TOKEN = 'pk.eyJ1IjoiZHNpbW1vbnM4OCIsImEiOiJjamxvYmFlMnUxczE2M3BvMGJxcTBtMTY5In0.SG8UL0v6JyEsnEUPvPp2BA';
 const navStyle = {
 
-  position: 'fixed',
+  position: 'absolute',
   top: 0,
   left: 0,
   padding: '10px'
@@ -11,7 +11,7 @@ const navStyle = {
 export default class Map extends Component {
 constructor(props) {
     super(props);
-  /*  this.state = {
+   this.state = {
       viewport: {
         latitude: 35.780400,
         longitude: -78.639100,
@@ -26,6 +26,7 @@ constructor(props) {
 render() {
     const {viewport} = this.state;
 return (
+      <div >
       <MapGL
         {...viewport}
         mapStyle="mapbox://styles/mapbox/streets-v9"
@@ -34,13 +35,14 @@ return (
           <NavigationControl/>
         </div>
       </MapGL>
+      </div>
     );
   }
 }
 
-*/
 
 
+/*
 this.state = {
     viewport: {
       latitude: 35.780400,
@@ -69,3 +71,4 @@ this.state = {
     );
   }
 }
+*/
