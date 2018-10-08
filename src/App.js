@@ -5,15 +5,47 @@ import SquareAPI from './API'
 import Map from './components/Map'
 
 class App extends Component {
+
+  constructor () {
+    super();
+    this.state = {
+      venues: [],
+      markers: []
+
+
+    };
+
+  }
+
+
     componentDidMount(){
+
+
+
+
       SquareAPI.search({
         ll:"35.780400,-78.639100",
         radius: "50000",
         query: "Brewery",
-        
+
         limit: "10"
-      }).then(resp => console.log(resp));
-      SquareAPI.getVenueDetails("586ee5584f417a4e33001742").then(results => console.log(results));
+      }).then(results => {
+
+        const {venues} = results.response;
+
+        const markers = venues.map(venue => {
+          return {
+
+          LngLat: [venue.location.lng,venue.location.lat],
+          togglePopup: false,
+          getPopup: true
+
+        };
+        });
+        this.setState({ venues, markers});
+        console.log(markers);
+      console.log(results);
+    });
 
     }
 
