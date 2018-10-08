@@ -36,7 +36,8 @@ class App extends Component {
         const markers = venues.map(venue => {
           return {
 
-          LngLat: [venue.location.lng,venue.location.lat],
+          lng: venue.location.lng,
+          lat: venue.location.lat,
           togglePopup: false,
           getPopup: true
 
@@ -56,7 +57,7 @@ class App extends Component {
       <header>
       <p>Neighorhood App</p>
       </header>
-     <Map />
+     <Map  {...this.state} />
      <footer>This info was imported from the Foursquare and Mapbox API</footer>
       </div>
     );
