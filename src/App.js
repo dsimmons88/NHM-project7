@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SquareAPI from './API'
 
 class App extends Component {
+    componentDidMount(){
+      SquareAPI.search({
+        near:"Raleigh,NC",
+        radius: 25,
+        query: "Brewery",
+        categoryId: "50327c8591d4c4b30a586d5d",
+        limit: 25
+      }).then(results => console.log(results));
+    }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+
       </div>
     );
   }
