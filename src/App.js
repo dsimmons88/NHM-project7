@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 
+
 import './App.css';
 import SquareAPI from './API'
 import Map from './components/Map'
+import mapboxgl from 'mapbox-gl'
+import 'mapbox-gl/dist/mapbox-gl.css';
+
+
+
 
 class App extends Component {
 
@@ -10,7 +16,8 @@ class App extends Component {
     super();
     this.state = {
       venues: [],
-      markers: []
+      markers: [],
+      zoom: 11
 
 
     };
@@ -57,7 +64,7 @@ class App extends Component {
       <header>
       <p>Neighorhood App</p>
       </header>
-     <Map  {...this.state} />
+     <Map  {...this.state}  />
      <footer>This info was imported from the Foursquare and Mapbox API</footer>
       </div>
     );
