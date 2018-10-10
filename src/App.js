@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
 
+
 import './App.css';
 import SquareAPI from './API'
-import Map from './components/Map'
+import Mapz from './components/Map'
+import mapboxgl from 'mapbox-gl'
 
-class App extends Component {
+
+import 'mapbox-gl/dist/mapbox-gl.css';
+
+
+
+
+class App extends React.Component {
 
   constructor () {
     super();
     this.state = {
       venues: [],
-      markers: []
+      markers: [],
+
+      zoom: 11
 
 
     };
@@ -24,14 +34,15 @@ class App extends Component {
 
 
       SquareAPI.search({
-        ll:"35.780400,-78.639100",
-        radius: "50000",
+        near:"Raleigh,NC",
+
         query: "Brewery",
 
         limit: "10"
       }).then(results => {
 
         const {venues} = results.response;
+
 
         const markers = venues.map(venue => {
           return {
@@ -57,7 +68,8 @@ class App extends Component {
       <header>
       <p>Neighorhood App</p>
       </header>
-     <Map  {...this.state} />
+      
+     <Mapz  {...this.state}  />
      <footer>This info was imported from the Foursquare and Mapbox API</footer>
       </div>
     );
