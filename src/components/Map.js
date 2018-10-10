@@ -2,13 +2,16 @@
 
 
 
-
+import Pin from './beerPin';
 import React, {Component} from 'react';
 import ReactMapGL, {Marker, Popup} from 'react-map-gl';
 const TOKEN = 'pk.eyJ1IjoiZHNpbW1vbnM4OCIsImEiOiJjamxvYmFlMnUxczE2M3BvMGJxcTBtMTY5In0.SG8UL0v6JyEsnEUPvPp2BA';
+
+
+
+
+
 class Mapz extends Component {
-
-
 
 
 
@@ -16,7 +19,7 @@ class Mapz extends Component {
       viewport: {
         latitude: 35.780400,
         longitude: -78.639100,
-        zoom: 11,
+        zoom:this.props.zoom,
         width: window.innerWidth,
         height:window.innerHeight,
         trackResize: true
@@ -31,9 +34,9 @@ class Mapz extends Component {
           onViewportChange={(viewport) => this.setState({viewport})}
           mapStyle="mapbox://styles/mapbox/streets-v9"
           mapboxApiAccessToken={TOKEN}
-          > {this.props.markers.map( marker => (
-            <Marker key={marker.id} latitude={marker.lat} longitude={marker.lng} offsetLeft={0} offsetTop={0}>
-            <div>You are here</div>
+          > {this.props.markers.map( (marker) => (
+            <Marker key={marker.lat} latitude={marker.lat} longitude={marker.lng} offsetLeft={0} offsetTop={0}>
+            <Pin />
           </Marker>
           ))}
 
