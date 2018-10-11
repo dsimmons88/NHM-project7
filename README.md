@@ -3,6 +3,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
+
+to use the project:
+1. download or clone project.
+2. run npm install in gitbash or node cmd in the folder of the download of the project.
+3. run npm start in the same folder.
+
 ## Table of Contents
 
 - [Updating to New Releases](#updating-to-new-releases)
