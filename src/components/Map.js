@@ -14,8 +14,9 @@ const TOKEN = 'pk.eyJ1IjoiZHNpbW1vbnM4OCIsImEiOiJjamxvYmFlMnUxczE2M3BvMGJxcTBtMT
 class Mapz extends Component {
 
 
-
-    state = {
+constructor (props) {
+  super(props);
+  this.state = {
       viewport: {
         latitude: 35.780400,
         longitude: -78.639100,
@@ -23,9 +24,15 @@ class Mapz extends Component {
         width: window.innerWidth,
         height:window.innerHeight,
         trackResize: true
-      }
+      },
 
     };
+
+  };
+
+
+
+
 
     render() {
       return (
@@ -34,9 +41,19 @@ class Mapz extends Component {
           onViewportChange={(viewport) => this.setState({viewport})}
           mapStyle="mapbox://styles/mapbox/streets-v9"
           mapboxApiAccessToken={TOKEN}
+
           > {this.props.markers.map( (marker) => (
-            <Marker key={marker.lat} latitude={marker.lat} longitude={marker.lng} offsetLeft={0} offsetTop={0}>
-            <Pin />
+            <Marker key={marker.lat} latitude={marker.lat}
+            longitude={marker.lng} offsetLeft={0} offsetTop={0}>
+            <Pin  />
+
+              <Popup  latitude={marker.lat}
+              longitude={marker.lng} offsetLeft={-650} offsetTop={-180} closeButton={true}
+              closeOnClick={false} dynamicPosition={true} anchor="top">
+
+            <div>"12"</div>
+            </Popup>
+
           </Marker>
           ))}
 

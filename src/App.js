@@ -50,7 +50,7 @@ class App extends React.Component {
 
           lng: venue.location.lng,
           lat: venue.location.lat,
-          togglePopup: false,
+          togglePopup: true,
           getPopup: true
 
         };
